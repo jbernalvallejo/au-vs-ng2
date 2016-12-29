@@ -1,0 +1,44 @@
+<div>
+	<div class="container">
+		<div class="row">
+			<div class="col col-md-6">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Phone</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let cust of customers" (click)="selectCustomer(cust)" [ngClass]="{'success': selectedCustomer === cust}">
+							<td>{{cust.firstName}}</td>
+							<td>{{cust.lastName}}</td>
+							<td>{{cust.phone}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col col-md-6">
+				<form class="form">
+					<div class="form-group">
+						<label for="firstName">First Name:</label>
+						<input type="text" name="firstName" id="firstName" [(ngModel)]="selectedCustomer.firstName">
+					</div>
+					<div class="form-group">
+						<label for="lastName">Last Name:</label>
+						<input type="text" name="lastName" id="lastName" [(ngModel)]="selectedCustomer.lastName">
+					</div>
+					<div class="form-group">
+						<label for="phone">Phone</label>
+						<input type="text" name="phone" id="phone" [(ngModel)]="selectedCustomer.phone">
+					</div>
+					<div class="form-group">
+						<label for="email">Email:</label>
+						<input type="text" name="email" id="name" [(ngModel)]="selectedCustomer.email">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,44 @@
+<template>
+	<div class="container">
+		<div class="row">
+			<div class="col col-md-6">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Phone</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr repeat.for="cust of customers" click.delegate="selectCustomer(cust)" class="${selectedCustomer === cust ? 'success' : ''}">
+							<td>${cust.firstName}</td>
+							<td>${cust.lastName}</td>
+							<td>${cust.phone}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col col-md-6">
+        <form class="form">
+          <div class="form-group">
+            <label for="firstName">First Name:</label>
+						<input type="text" name="firstName" id="firstName" value.bind="selectedCustomer.firstName">
+          </div>
+					<div class="form-group">
+						<label for="lastName">Last Name:</label>
+						<input type="text" name="lastName" id="lastName" value.bind="selectedCustomer.lastName">
+					</div>
+					<div class="form-group">
+						<label for="phone">Phone</label>
+						<input type="text" name="phone" id="phone" value.bind="selectedCustomer.phone">
+					</div>
+					<div class="form-group">
+						<label for="email">Email:</label>
+						<input type="text" name="email" id="name" value.bind="selectedCustomer.email">
+					</div>
+        </form>
+			</div>
+		</div>
+	</div>
+</template>
